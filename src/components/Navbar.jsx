@@ -21,13 +21,13 @@ const products = [
   {
     name: "Web Applications",
     description: "Get a better understanding of your traffic",
-    href: "#",
+    href: "webapps",
     icon: ChartPieIcon,
   },
   {
     name: "Static Websites",
     description: "Speak directly to your customers",
-    href: "#",
+    href: "websites",
     icon: CursorArrowRaysIcon,
   },
   {
@@ -37,6 +37,22 @@ const products = [
     icon: FingerPrintIcon,
   },
 ];
+
+const work = [
+  {
+    name: "Customer Cases",
+    description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Internal Projects",
+    description: "Speak directly to your customers",
+    href: "#",
+    icon: CursorArrowRaysIcon,
+  },
+];
+
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -52,14 +68,14 @@ export default function Example() {
   return (
     <header className="bg-white fixed w-full">
       <nav
-        className="mx-auto flex items-center justify-between py-3 w-[99%] mx-auto"
+        className="mx-auto flex items-center justify-between py-3 w-[96%] mx-auto"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <a href="/" className="text-[20px] font-[500]">
-              obtainal
+              gazella group
             </a>
           </a>
         </div>
@@ -115,19 +131,47 @@ export default function Example() {
               </Popover.Panel>
             </Transition>
           </Popover>
+          <Popover className="relative">
+            <Popover.Button className="flex items-center gap-x-1 text-[12px] font-[500] leading-6 text-gray-900">
+              Work
+              <ChevronDownIcon
+                className="h-5 w-5 flex-none text-gray-400"
+                aria-hidden="true"
+              />
+            </Popover.Button>
 
-          <a
-            href="#"
-            className="text-[12px] font-[500] leading-6 text-gray-900"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="text-[12px] font-[500] leading-6 text-gray-900"
-          >
-            Cases
-          </a>
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-[8px] bg-white shadow-main ring-1 ring-gray-900/5">
+                <div className="p-4">
+                  {work.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex-auto">
+                        <a
+                          href={item.href}
+                          className="block font-semibold text-gray-900"
+                        >
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </a>
+                        <p className="mt-1 text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </Popover>
           <a
             href="#"
             className="text-[12px] font-[500] leading-6 text-gray-900"
@@ -136,7 +180,7 @@ export default function Example() {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button message="Book et møde" />
+          <a className="font-[600] text-[14px] cursor-pointer">+45 5069 5272</a>
         </div>
       </nav>
       <Dialog

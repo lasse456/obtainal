@@ -6,6 +6,8 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 import App from "./App";
 import Booking from "./pages/Booking";
+import Webapps from "./pages/Webapps";
+import Websites from "./pages/Websites";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
   {
     path: "booking",
     element: <Booking />,
+  },
+  {
+    path: "webapps",
+    element: <Webapps />,
+  },
+  {
+    path: "websites",
+    element: <Websites />,
   },
 ]);
 
